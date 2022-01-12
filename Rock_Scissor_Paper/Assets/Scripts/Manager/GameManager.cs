@@ -53,8 +53,8 @@ public class GameManager : Singleton<GameManager>
 	{
 		CreateDeck();
 
-		DistributeCards(playerTransform, 3, false);
-		DistributeCards(opponentTransform, 3, true);
+		DistributeCards(playerTransform, 3);
+		DistributeCards(opponentTransform, 3);
 	}
 
 	private void Update()
@@ -151,11 +151,11 @@ public class GameManager : Singleton<GameManager>
 	}
 
 	//Method of dealing cards to each player at the initial stage
-	private void DistributeCards(Transform currentPlayer, int quantityCardToDistribute, bool isOpponent)
+	private void DistributeCards(Transform currentPlayer, int quantityCardToDistribute)
 	{
 		CCard currentCard = null;
 
-		if (isOpponent)
+		if (currentPlayer.GetComponentInParent<Player>().GetType().Equals(typeof(PlayerOpponent)))
 		{
 			for (int i = 0; i < quantityCardToDistribute; i++)
 			{

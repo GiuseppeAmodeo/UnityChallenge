@@ -12,7 +12,8 @@ public class Player : MonoBehaviour
 
 	public int CardsCount => myCards.Count;
 
-	public bool turnOver;
+	protected bool turnOver;
+
 	public CCard CardThrowed => cardThrowed;
 
 	public bool TurnOver => turnOver;

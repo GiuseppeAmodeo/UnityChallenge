@@ -57,7 +57,7 @@ public class PlayerOpponent : Player
 		turnOver = true;
 
 		//se turn over e' falso switcho stato
-		if (!GameManager.Instance.PlayerMySelf.turnOver)
+		if (!GameManager.Instance.PlayerMySelf.TurnOver)
 			currentState = OnWaitState;
 	}
 	#endregion
