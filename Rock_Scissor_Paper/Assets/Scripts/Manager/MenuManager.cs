@@ -17,5 +17,14 @@ public class MenuManager : MonoBehaviour
 		SceneManager.LoadScene(1);
 	}
 
-	
+	public void ReloadLevel()
+	{
+		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+	}
+
+	public void ExitLevel()
+	{
+		SceneManager.LoadScene(0);
+	}
+
 }

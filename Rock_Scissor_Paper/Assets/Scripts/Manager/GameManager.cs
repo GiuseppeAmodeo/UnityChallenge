@@ -95,21 +95,18 @@ public class GameManager : Singleton<GameManager>
 
 				if (pointsOpponent == pointsPlayer)
 				{
-					//drawText.SetActive(true);
 					CheckPlayerWin(txtStatusGameOver, false, true);
 					return;
 				}
 
 				else if (pointsPlayer > pointsOpponent)
 				{
-					//playerWinText.SetActive(true);
 					CheckPlayerWin(txtStatusGameOver, true);
 					return;
 				}
 
 				else if (pointsOpponent > pointsPlayer)
 				{
-					//opponentWinText.SetActive(true);
 					CheckPlayerWin(txtStatusGameOver, false);
 					return;
 				}
@@ -226,10 +223,9 @@ public class GameManager : Singleton<GameManager>
 	//Method to control the cards thrown
 	private void CheckCardsThrowed(TypeCard playerTypeCard, TypeCard opponentTypeCard, TypeCard cardWinner, TypeCard cardLoser)
 	{
+		//Draw
 		if (playerTypeCard == opponentTypeCard)
 		{
-			//print("Draw");
-
 			Destroy(playerMySelf.CardThrowed.gameObject, destroyTimeCardThrowed);
 			Destroy(playerOpponent.CardThrowed.gameObject, destroyTimeCardThrowed);
 
@@ -239,11 +235,9 @@ public class GameManager : Singleton<GameManager>
 			return;
 
 		}
-
+		//Player Win.
 		else if (playerTypeCard == cardWinner && opponentTypeCard == cardLoser)
 		{
-			//print("Player Win!");
-
 			pointsPlayer += 1;
 
 			if (txtPlayerPoints != null)
@@ -256,14 +250,11 @@ public class GameManager : Singleton<GameManager>
 
 			cardsChecked = true;
 			return;
-
-			//Metti turn over player a falso
 		}
 
+		//Opponent Win.
 		else if (opponentTypeCard == cardWinner && playerTypeCard == cardLoser)
 		{
-			//print("Opponent Win!");
-
 			pointsOpponent += 1;
 
 			if (txtOpponentsPoints != null)
@@ -276,8 +267,6 @@ public class GameManager : Singleton<GameManager>
 
 			cardsChecked = true;
 			return;
-
-			//Metti turn over player a falso
 		}
 	}
 
@@ -327,15 +316,4 @@ public class GameManager : Singleton<GameManager>
 			yield return null;
 		}
 	}
-
-	public void ReloadLevel()
-	{
-		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-	}
-
-	public void ExitLevel()
-	{
-		SceneManager.LoadScene(0);
-	}
-
 }
